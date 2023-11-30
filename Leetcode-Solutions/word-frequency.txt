@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Read the file, convert to lowercase, and split into words
+words=$(<words.txt tr '[:upper:]' '[:lower:]' | tr -s ' ' '\n')
+
+# Count the word frequencies and format the result
+result=$(echo "$words" | awk '{ count[$0]++ } END { for (word in count) print word, count[word] }' | sort -k2,2nr -k1,1)
+
+# Print the result
+echo "$result"

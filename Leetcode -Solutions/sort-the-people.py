@@ -1,7 +1,16 @@
 class Solution:
     def sortPeople(self, names, heights):
-        people = list(zip(names, heights))
-        people.sort(key=lambda x: x[1], reverse=True)
-        sorted_names = [person[0] for person in people]
+        n = len(heights)
         
-        return sorted_names
+        for i in range(n - 1):
+            swap  =False
+            for j in range(n - i - 1):
+                if heights[j] < heights[j + 1]:
+                    heights[j], heights[j + 1] = heights[j + 1], heights[j]
+                   
+                    names[j], names[j + 1] = names[j + 1], names[j]
+                    swap = True
+            if not swap:
+                break
+        
+        return names

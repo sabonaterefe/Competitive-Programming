@@ -20,7 +20,7 @@ class NumMatrix:
         if not self.cumulative_sum:
             return 0
         return (
-            self.cumulative_sum[row2 + 1][col2 + 1]
+            self.cumulative_sum[row2 +1][col2 + 1]
             - self.cumulative_sum[row1][col2 + 1]
             - self.cumulative_sum[row2 + 1][col1]
             + self.cumulative_sum[row1][col1]
